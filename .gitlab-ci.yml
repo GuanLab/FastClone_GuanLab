@@ -1,0 +1,90 @@
+stages:
+  - test
+  - build
+
+# test:
+#   image: condaforge/linux-anvil
+#   stage: test
+#   script:
+#     - conda config --add channels bioconda
+#     - conda env create -p env/ -f environment.yml
+#     - source activate env/
+#     - conda install pytest-cov
+#     - python3 setup.py develop
+#     - pytest --verbose --cov fastclone/ --pyargs fastclone
+#   coverage: '/TOTAL.*\s+(\d+%)$/'
+
+test_build_conda_python35:
+  image: condaforge/linux-anvil
+  stage: test
+  script:
+    - conda config --add channels bioconda
+    - conda config --add channels guanlab
+    - conda install -y conda-verify
+    - conda build --python=3.5 recipe/meta.yaml
+  except:
+    - master
+
+test_build_conda_python36:
+  image: condaforge/linux-anvil
+  stage: test
+  script:
+    - conda config --add channels bioconda
+    - conda config --add channels guanlab
+    - conda install -y conda-verify
+    - conda build --python=3.6 recipe/meta.yaml
+  except:
+    - master
+
+test_build_conda_python37:
+  image: condaforge/linux-anvil
+  stage: test
+  script:
+    - conda config --add channels bioconda
+    - conda config --add channels guanlab
+    - conda install -y conda-verify
+    - conda build --python=3.7 recipe/meta.yaml
+  except:
+    - master
+
+build_conda_python35:
+  image: condaforge/linux-anvil
+  stage: build
+  script:
+    - conda config --add channels bioconda
+    - conda config --add channels guanlab
+    - conda install -y conda-verify
+    - conda config --set anaconda_upload yes
+    - >
+      conda build --user guanlab --token $ANACONDA_TOKEN
+      --python=3.5 recipe/meta.yaml
+  only:
+    - master
+
+build_conda_python36:
+  image: condaforge/linux-anvil
+  stage: build
+  script:
+    - conda config --add channels bioconda
+    - conda config --add channels guanlab
+    - conda install -y conda-verify
+    - conda config --set anaconda_upload yes
+    - >
+      conda build --user guanlab --token $ANACONDA_TOKEN
+      --python=3.6 recipe/meta.yaml
+  only:
+    - master
+
+build_conda_python37:
+  image: condaforge/linux-anvil
+  stage: build
+  script:
+    - conda config --add channels bioconda
+    - conda config --add channels guanlab
+    - conda install -y conda-verify
+    - conda config --set anaconda_upload yes
+    - >
+      conda build --user guanlab --token $ANACONDA_TOKEN
+      --python=3.7 recipe/meta.yaml
+  only:
+    - master

@@ -39,7 +39,7 @@ setuptools.setup(
         'Programming Language :: Python :: 3.7',
         'Topic :: Scientific/Engineering :: Bio-Informatics',
     ],
-    setup_requires=['pytest-runner'],
-    tests_require=['pytest', 'pytest-datadir'],
+    #setup_requires=['pytest-runner'],
+    #tests_require=['pytest', 'pytest-datadir'],
     install_requires=['logbook', 'pandas', 'scikit-learn'],
 )

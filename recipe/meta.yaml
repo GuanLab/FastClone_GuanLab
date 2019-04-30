@@ -1,0 +1,43 @@
+{% set name = "fastclone" %}
+{% set version = "2019.0.0" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  path: ../
+
+build:
+  number: 0
+  script: 'python -m pip install . --no-deps -vv'
+
+requirements:
+  host:
+    - python
+    - pip
+    # - pytest-runner
+  run:
+    - python >=3.5
+    - fire
+    - logbook
+    - pandas
+    - scikit-learn
+
+# test:
+#   requires:
+#     - pytest
+#     - pytest-datadir
+#   commands:
+#     - pytest --verbose --pyargs {{ name }}
+
+about:
+  home: http://github.com/guanlab/{{ name }}
+  license: GPL-3.0+
+  license_family: GPL
+  license_file: LICENSE.txt
+  summary: 'An inference tool for tumour subclonal composition'
+  description: |
+    FastClone is an ultra-fast inference algorithm to estimate subclonal
+    composition.
+  dev_url: https://github.com/guanlab/{{ name }}
