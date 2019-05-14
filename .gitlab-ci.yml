@@ -22,8 +22,6 @@ test_build_conda_python35:
     - conda config --add channels guanlab
     - conda install -y conda-verify
     - conda build --python=3.5 recipe/meta.yaml
-  except:
-    - master
 
 test_build_conda_python36:
   image: condaforge/linux-anvil
@@ -33,8 +31,6 @@ test_build_conda_python36:
     - conda config --add channels guanlab
     - conda install -y conda-verify
     - conda build --python=3.6 recipe/meta.yaml
-  except:
-    - master
 
 test_build_conda_python37:
   image: condaforge/linux-anvil
@@ -44,10 +40,8 @@ test_build_conda_python37:
     - conda config --add channels guanlab
     - conda install -y conda-verify
     - conda build --python=3.7 recipe/meta.yaml
-  except:
-    - master
 
-build_conda_python35:
+build_conda_python:
   image: condaforge/linux-anvil
   stage: build
   script:
@@ -58,33 +52,5 @@ build_conda_python35:
     - >
       conda build --user guanlab --token $ANACONDA_TOKEN
       --python=3.5 recipe/meta.yaml
-  only:
-    - master
-
-build_conda_python36:
-  image: condaforge/linux-anvil
-  stage: build
-  script:
-    - conda config --add channels bioconda
-    - conda config --add channels guanlab
-    - conda install -y conda-verify
-    - conda config --set anaconda_upload yes
-    - >
-      conda build --user guanlab --token $ANACONDA_TOKEN
-      --python=3.6 recipe/meta.yaml
-  only:
-    - master
-
-build_conda_python37:
-  image: condaforge/linux-anvil
-  stage: build
-  script:
-    - conda config --add channels bioconda
-    - conda config --add channels guanlab
-    - conda install -y conda-verify
-    - conda config --set anaconda_upload yes
-    - >
-      conda build --user guanlab --token $ANACONDA_TOKEN
-      --python=3.7 recipe/meta.yaml
   only:
     - master
