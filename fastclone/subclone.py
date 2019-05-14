@@ -141,9 +141,10 @@ def _get_density_peaks(samples, grid_count=200):
         maxidx.append(0)
     if logpdf[-1] > logpdf[-2]:
         maxidx.append(len(logpdf) - 1)
-    peaks = [scipy.optimize.fminbound(lambda x: -kde.logpdf(x), x[idx] - delta,
-                                      x[idx] + delta, xtol=1e-6,
-                                      full_output=False, disp=False)[0]
+    peaks = [float(scipy.optimize.fminbound(lambda x: -kde.logpdf(x)
+                                            x[idx] - delta, x[idx] + delta
+                                            xtol=1e-6, full_output=False,
+                                            disp=False))
              for idx in maxidx]
     peaks.sort()
     _LOG.info('Found peaks: {}', peaks)
@@ -245,7 +246,7 @@ def _estimate_subclone_weights(mutations, peaks):
     l = scipy.stats.binom.logpmf(x, k, p).max(axis=2) + numpy.log(weights)
     l_sample = scipy.misc.logsumexp(l, axis=1)
     l_sum = l_sample.sum()
-    for t in range(1000):
+    for t in range(5000):
         old_l_sum = l_sum
         scores = numpy.exp(l - l_sample[:, None])
         weights = scores.mean(axis=0)
