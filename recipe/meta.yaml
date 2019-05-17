@@ -1,5 +1,5 @@
 {% set name = "fastclone" %}
-{% set version = "2019.0.0" %}
+{% set version = "2019.1" %}
 
 package:
   name: {{ name }}
@@ -10,7 +10,7 @@ source:
 
 build:
   noarch: python
-  number: 3
+  number: 0
   script: 'python -m pip install . --no-deps -vv'
 
 requirements:

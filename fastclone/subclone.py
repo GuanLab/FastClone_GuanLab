@@ -1,5 +1,7 @@
 """Subclonal composition inference"""
 
+import pickle
+
 import logbook
 import numpy
 import pandas
@@ -26,7 +28,7 @@ def infer_single_sample(mutations, purity):
     ----------
     mutations : pandas.DataFrame
         The mutation table.
-    purity : float | NoneType
+    purity : float | str | NoneType
         The estimated tumour purity.
 
     Returns
@@ -36,6 +38,9 @@ def infer_single_sample(mutations, purity):
     numpy.ndarray[float]
         The mutation assignment to subclones.
     """
+    if isinstance(purity, str):
+        peaks = pickle.load(open(purity, 'rb'))[2]
+        return _assign_mutations_to_subclones(mutations, peaks)
     filter_ = ((mutations['major_copy1'] == mutations['minor_copy1']) &
                (mutations['state1'] == 1.0))
     if filter_.sum() > _MINIMAL_MUTATIONS:

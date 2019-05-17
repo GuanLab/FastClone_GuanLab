@@ -80,6 +80,24 @@ class Entrypoint:
         self._samples[name] = (loaders.load_pyclone(path), purity)
         return self
 
+    def load_pyclone_truth(self, name, path, truth):
+        """Load a sample from a PyClone file with pickled data.
+
+        Parameters
+        ----------
+        path : str
+            A path or a file handle of the VCF file.
+        truth : str
+            A truth subclonal frequency file.
+        """
+        if name in self._samples:
+            raise ValueError('duplicate sample: ' + name)
+        _LOG.info('Loading {} ...', name)
+        _LOG.info('PyClone file {}', path)
+        _LOG.info('Truth file: {}', truth)
+        self._samples[name] = (loaders.load_pyclone(path), truth)
+        return self
+
     def solve(self, output):
         """Infer the subclonal composition.
 
