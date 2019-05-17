@@ -39,7 +39,7 @@ def infer_single_sample(mutations, purity):
         The mutation assignment to subclones.
     """
     if isinstance(purity, str):
-        peaks = pickle.load(open(purity, 'rb'))[2]
+        peaks = [float(x) for x in purity.split(':')]
         return _assign_mutations_to_subclones(mutations, peaks)
     filter_ = ((mutations['major_copy1'] == mutations['minor_copy1']) &
                (mutations['state1'] == 1.0))
