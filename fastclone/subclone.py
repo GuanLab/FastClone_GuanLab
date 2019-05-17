@@ -141,8 +141,8 @@ def _get_density_peaks(samples, grid_count=200):
         maxidx.append(0)
     if logpdf[-1] > logpdf[-2]:
         maxidx.append(len(logpdf) - 1)
-    peaks = [float(scipy.optimize.fminbound(lambda x: -kde.logpdf(x)
-                                            x[idx] - delta, x[idx] + delta
+    peaks = [float(scipy.optimize.fminbound(lambda x: -kde.logpdf(x),
+                                            x[idx] - delta, x[idx] + delta,
                                             xtol=1e-6, full_output=False,
                                             disp=False))
              for idx in maxidx]
