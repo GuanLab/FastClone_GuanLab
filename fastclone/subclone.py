@@ -81,7 +81,7 @@ def _infer_without_2state_cna(mutations, purity):
             peaks = [p for p in peaks if p < 1.0] + [1.0]
         r = peaks[-1]
         ratios = f * ((mutations['major_copy1'] + mutations['minor_copy1']) * r
-                      + mutations['normal_copy'] * (1 - rho))
+                      + mutations['normal_copy'] * (1 - r))
         peaks = _get_density_peaks(ratios)
         peaks = _adjust_subclone_on_purity(peaks, r)
     return numpy.asarray(peaks)
@@ -116,7 +116,7 @@ def _infer_with_2state_cna(mutations, purity):
             peaks = [p for p in peaks if p < 1.0] + [1.0]
         r = peaks[-1]
         ratios = f * ((mutations['major_copy1'] + mutations['minor_copy1']) * r
-                      + mutations['normal_copy'] * (1 - rho))
+                      + mutations['normal_copy'] * (1 - r))
         peaks = _get_density_peaks(ratios)
         peaks = _adjust_subclone_on_purity(peaks, r)
     return numpy.asarray(peaks)
