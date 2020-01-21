@@ -22,7 +22,7 @@ SMC-Het Challenge) or PyClone format.
 
 An example to load samples and infer:
 ```
-fastclone load-pyclone t1 t1.tsv None load-pyclone t2 t2.tsv 0.8 solve
+fastclone load-pyclone t1 t1.tsv 0.8 solve
 ```
 
 Run `fastclone` for more help information.
