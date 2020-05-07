@@ -12,7 +12,7 @@ scikit-learn, and pandas. To install the package using Pip,
 
 ```
 git clone https://github.com/GuanLab/FastClone.git
-pip install FastClone
+pip install FastClone_GuanLab
 ```
 
 ## Usage
