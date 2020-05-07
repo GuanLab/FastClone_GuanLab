@@ -20,7 +20,7 @@ pip install FastClone_GuanLab
 FastClone accepts either MuTect VCF + Battenberg format (specified in the DREAM
 SMC-Het Challenge) or PyClone format.
 
-The general format of the command line is:
+The general format of the command line:
 ```
 fastclone load-[FILE FORMAT] prop [FILE NAME] [TUMOR PURITY] solve [OUTPUT_PATHWAY]
 ```
