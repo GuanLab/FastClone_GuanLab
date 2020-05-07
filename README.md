@@ -7,7 +7,7 @@ Mutation Calling -- Heterogeneity Challenge in 2016.
 
 ## Installation
 
-FastClone needs Python 3.5 version. It needs logbook, python-fire,
+FastClone needs Python >= 3.5 version. It needs logbook, python-fire,
 scikit-learn, and pandas. To install the package using Pip,
 
 ```
