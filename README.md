@@ -11,7 +11,7 @@ FastClone needs Python 3.5 or later version. It needs logbook, python-fire,
 scikit-learn, and pandas. To install the package using Pip,
 
 ```
-git clone https://github.com/GuanLab/FastClone.git
+git clone https://github.com/GuanLab/FastClone_GuanLab.git
 pip install FastClone_GuanLab
 ```
 
