@@ -244,7 +244,7 @@ def _estimate_subclone_weights(mutations, peaks):
                                         peaks - state1 * purity)),
         numpy.where(peaks < state1, 0, (minor * state1 * purity +
                                         peaks - state1 * purity)),
-        numpy.repeat(numpy.arange(1, (major.max() + 1)) * peaks, len(mutations), axis=0)
+        numpy.repeat(numpy.arange(1, (numpy.nanmax(major) + 1)) * peaks, len(mutations), axis=0)
     ])
     copy_number_category = numpy.unique(major)
     for copy_number in copy_number_category:
@@ -252,7 +252,7 @@ def _estimate_subclone_weights(mutations, peaks):
     p = numerator / denominator
     x = mutations['allelic_count'].values[:, None, None]
     k = mutations['total_count'].values[:, None, None]
-    l = scipy.stats.binom.logpmf(x, k, p).max(axis=2) + numpy.log(weights)
+    l = numpy.nanmax(scipy.stats.binom.logpmf(x, k, p), axis=2) + numpy.log(weights)
     l_sample = scipy.special.logsumexp(l, axis=1)
     l_sum = numpy.nansum(l_sample)
     for t in range(5000):
@@ -260,7 +260,7 @@ def _estimate_subclone_weights(mutations, peaks):
         scores = numpy.exp(l - l_sample[:, None])
         weights = numpy.nanmean(scores, axis=0)
         weights /= weights.sum()
-        l = scipy.stats.binom.logpmf(x, k, p).max(axis=2) + numpy.log(weights)
+        l = numpy.nanmax(scipy.stats.binom.logpmf(x, k, p), axis=2) + numpy.log(weights)
         l_sample = scipy.special.logsumexp(l, axis=1)
         l_sum = numpy.nansum(l_sample)
         if l_sum > old_l_sum and l_sum < old_l_sum + 0.001:
