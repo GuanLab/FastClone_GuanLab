@@ -58,6 +58,7 @@ def load_mutect_and_battenberg(vcf_path, vcf_sample, battenberg_path):
     data.index = (data['chromosome'] + ':' + data['coordinate'].astype(str)
                   + ':' + data['base'])
     data.drop(['chromosome', 'coordinate', 'base'], axis=1, inplace=True)
+    data = data[data.allelic_count/data.total_count > 0.01]
     return data, purity
 
 
@@ -191,4 +192,5 @@ def load_pyclone(path):
     data['major_copy2'] = 1
     data['minor_copy2'] = 1
     data['state1'] = 1.0
+    data = data[data.allelic_count/data.total_count > 0.01]
     return data
