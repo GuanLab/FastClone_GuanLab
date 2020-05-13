@@ -5,7 +5,7 @@ import pickle
 import logbook
 import numpy
 import pandas
-import scipy.misc
+import scipy.special
 import scipy.optimize
 import scipy.signal
 import scipy.stats
@@ -239,26 +239,30 @@ def _estimate_subclone_weights(mutations, peaks):
     minor = mutations['minor_copy1'].values[:, None, None]
     state1 = mutations['state1'].values[:, None, None]
     denominator = state1 * purity * (major + minor) + (1 - state1 * purity) * 2
-    p = numpy.dstack([
+    numerator = numpy.dstack([
         numpy.where(peaks < state1, 0, (major * state1 * purity +
                                         peaks - state1 * purity)),
         numpy.where(peaks < state1, 0, (minor * state1 * purity +
                                         peaks - state1 * purity)),
-        numpy.repeat(peaks, len(mutations), axis=0),
-    ]) / denominator
+        numpy.repeat(numpy.arange(1, (major.max() + 1)) * peaks, len(mutations), axis=0)
+    ])
+    copy_number_category = numpy.unique(major)
+    for copy_number in copy_number_category:
+        numerator[numpy.argwhere(major == copy_number)[0][0]][0][(copy_number + 2):] = 0
+    p = numerator / denominator
     x = mutations['allelic_count'].values[:, None, None]
     k = mutations['total_count'].values[:, None, None]
     l = scipy.stats.binom.logpmf(x, k, p).max(axis=2) + numpy.log(weights)
-    l_sample = scipy.misc.logsumexp(l, axis=1)
-    l_sum = l_sample.sum()
+    l_sample = scipy.special.logsumexp(l, axis=1)
+    l_sum = numpy.nansum(l_sample)
     for t in range(5000):
         old_l_sum = l_sum
         scores = numpy.exp(l - l_sample[:, None])
-        weights = scores.mean(axis=0)
+        weights = numpy.nanmean(scores, axis=0)
         weights /= weights.sum()
         l = scipy.stats.binom.logpmf(x, k, p).max(axis=2) + numpy.log(weights)
-        l_sample = scipy.misc.logsumexp(l, axis=1)
-        l_sum = l_sample.sum()
+        l_sample = scipy.special.logsumexp(l, axis=1)
+        l_sum = numpy.nansum(l_sample)
         if l_sum > old_l_sum and l_sum < old_l_sum + 0.001:
             _LOG.info('EM is fully converged.')
             break
