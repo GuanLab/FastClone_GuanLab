@@ -4,7 +4,7 @@ import setuptools
 
 
 setuptools.setup(
-    name='fastclone',
+    name='fastclone-guanlab',
     version='2020.2',
     description='An inference tool for tumour subclonal composition',
     author='Hongjiu Zhang, Yuanfang Guan',
