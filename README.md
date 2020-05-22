@@ -17,7 +17,7 @@ pip install FastClone_GuanLab/
 
 (Please make sure you have the slash at the end, which forces pip to install from local directory, otherwise it will run into error)
 
-You can also use pip to install FastClone now
+You can also use pip to install FastClone now.
 ```
 pip install fastclone-guanlab
 ```
