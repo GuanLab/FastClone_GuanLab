@@ -2,11 +2,15 @@
 
 import setuptools
 
+with open('README.md', 'r') as fh:
+        long_description = fh.read()
 
 setuptools.setup(
     name='fastclone-guanlab',
-    version='2020.2',
+    version='2020.2.0.0',
     description='An inference tool for tumour subclonal composition',
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     author='Hongjiu Zhang, Yuanfang Guan',
     author_email='zhanghj@umich.edu, gyuanfan@umich.edu',
     url='http://github.com/GuanLab/FastClone_GuanLab',
