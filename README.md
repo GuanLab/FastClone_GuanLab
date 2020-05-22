@@ -27,7 +27,7 @@ The general format of the command line:
 fastclone load-[FILE_FORMAT] prop [FILE_NAME] [TUMOR_PURITY] solve [OUTPUT_PATHWAY]
 ```
 
-An example to load samples and infer:
+An example to load samples and infer (t1.tsv is included in the repository):
 ```
 fastclone load-pyclone prop t1.tsv 0.8 solve /home/fastclone_result1/
 ```
