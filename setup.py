@@ -9,7 +9,7 @@ setuptools.setup(
     description='An inference tool for tumour subclonal composition',
     author='Hongjiu Zhang, Yuanfang Guan',
     author_email='zhanghj@umich.edu, gyuanfan@umich.edu',
-    url='http://github.com/guanlab/fastclone',
+    url='http://github.com/GuanLab/FastClone_GuanLab',
     license='GPLv3+',
     keywords='bioinformatics',
     python_requires='>=3.5.0',
