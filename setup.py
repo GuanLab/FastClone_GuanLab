@@ -5,7 +5,7 @@ import setuptools
 
 setuptools.setup(
     name='fastclone',
-    version='2019.1',
+    version='2020.2',
     description='An inference tool for tumour subclonal composition',
     author='Hongjiu Zhang, Yuanfang Guan',
     author_email='zhanghj@umich.edu, gyuanfan@umich.edu',
