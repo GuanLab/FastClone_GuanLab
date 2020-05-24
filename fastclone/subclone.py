@@ -9,6 +9,7 @@ import scipy.special
 import scipy.optimize
 import scipy.signal
 import scipy.stats
+from itertools import chain
 
 
 _LOG = logbook.Logger(__name__)
@@ -104,8 +105,13 @@ def _infer_with_2state_cna(mutations, purity):
     """
     r = 1.0 if purity is None else purity
     f = mutations['allelic_count'] / mutations['total_count']
-    ratios = f * ((mutations['major_copy1'] + mutations['minor_copy1']) * r
-                  + mutations['normal_copy'] * (1 - r))
+    ratios = []
+    for i in range(len(mutations)):
+        tmp_ratios = [f[i] * ((mj_copy + mutations['minor_copy1'].iloc[i]) * r + mutations['normal_copy'].iloc[i] * (1 - r))
+                      for mj_copy in range(mutations['major_copy1'].iloc[i])]
+        ratios.append(tmp_ratios)
+    ratios = list(chain(*ratios))
+    ratios = pandas.Series(ratios)
     peaks = _get_density_peaks(ratios)
     if purity is not None:
         peaks = _adjust_subclone_on_purity(peaks, purity)
