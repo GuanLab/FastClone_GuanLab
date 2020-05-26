@@ -7,7 +7,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='fastclone-guanlab',
-    version='2020.2.0.0',
+    version='1.0.3',
     description='An inference tool for tumour subclonal composition',
     long_description=long_description,
     long_description_content_type="text/markdown",
