@@ -108,7 +108,7 @@ def _infer_with_2state_cna(mutations, purity):
     ratios = []
     for i in range(len(mutations)):
         tmp_ratios = [f[i] * ((mj_copy + mutations['minor_copy1'].iloc[i]) * r + mutations['normal_copy'].iloc[i] * (1 - r))
-                      for mj_copy in range(mutations['major_copy1'].iloc[i])]
+                      for mj_copy in range(int(mutations['major_copy1'].iloc[i]))]
         ratios.append(tmp_ratios)
     ratios = list(chain(*ratios))
     ratios = pandas.Series(ratios)
