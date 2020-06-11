@@ -30,14 +30,13 @@ The general format of the command line:
 ```
 fastclone load-[FILE_FORMAT] prop [FILE_NAME] [TUMOR_PURITY] solve [OUTPUT_PATHWAY]
 ```
+(If purity is unavailable, input "None" at the position of [TUMOUR__PURITY], and FastClone will infer purity automatically)
 
 An example to load samples and infer (t1.tsv is included in this repository):
 ```
 fastclone load-pyclone prop t1.tsv 0.8 solve ./fastclone_result
 ```
 （Please make sure t1.tsv is under your current directory）
-
-If purity is unavailable, Input None and it will infer automatically
 
 Run `fastclone` for more help information.
 
