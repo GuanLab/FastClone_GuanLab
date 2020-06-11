@@ -37,7 +37,7 @@ fastclone load-pyclone prop t1.tsv 0.8 solve ./fastclone_result
 ```
 （Please make sure t1.tsv is under your current directory）
 
-If purity is unavailable, Input none and it will infer automatically
+If purity is unavailable, Input None and it will infer automatically
 
 Run `fastclone` for more help information.
 
