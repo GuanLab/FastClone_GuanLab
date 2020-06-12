@@ -32,7 +32,7 @@ fastclone load-[FILE_FORMAT] prop [FILE_NAME] [TUMOR_PURITY] solve [OUTPUT_PATHW
 ```
 (If purity is unavailable, input "None" at the position of [TUMOUR__PURITY], and FastClone will infer purity automatically)
 
-An example to load samples and infer (t1.tsv is included in this repository):
+A fake example to load samples and infer (t1.tsv is included in this repository):
 ```
 fastclone load-pyclone prop t1.tsv 0.8 solve ./fastclone_result
 ```
