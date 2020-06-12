@@ -114,13 +114,13 @@ class Entrypoint:
         pathlib.Path(output).mkdir(parents=True)
         samples = list(self._samples.items())
         subclones = None
-        phylogeny = None
         for name, sample in samples:
             sample_subclones, score = subclone.infer_single_sample(*sample)
             sample_subclones = pandas.DataFrame(sample_subclones,
                                                 columns=[name])
             if subclones is None:
                 subclones = sample_subclones
+        phylogeny.infer(subclones, score, output)
         pandas.DataFrame(subclones).to_csv(output + '/subclones.csv')
         pandas.DataFrame(score).to_csv(output + '/scores.csv')
 
