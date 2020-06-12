@@ -3,7 +3,7 @@
 FastClone is a fast algorithm to infer tumour heterogeneity. Given somatic
 mutation frequencies and copy number data, FastClone infers subclonal
 composition and phylogeny. The algorithm won the first place in DREAM Somatic
-Mutation Calling -- Heterogeneity Challenge in 2016.
+Mutation Calling -- Heterogeneity Challenge.
 
 ## Installation
 
