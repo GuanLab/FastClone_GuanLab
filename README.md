@@ -48,5 +48,8 @@ Separately, subclone.py will infer purity (whether a starter value is given or n
 
 ## Output
 
-subclones.csv gives frequency of each clone
-scores.csv gives SNP assignment
+subclones.csv gives frequency of each clone.
+
+scores.csv gives SNP assignment.
+
+Phylogeny if multiple nodes will be output as a png.
