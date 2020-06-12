@@ -32,11 +32,11 @@ fastclone load-[FILE_FORMAT] prop [FILE_NAME] [TUMOR_PURITY] solve [OUTPUT_PATHW
 ```
 (If purity is unavailable, input "None" at the position of [TUMOUR__PURITY], and FastClone will infer purity automatically)
 
-A fake example to load samples and infer (t1.tsv is included in this repository):
+A pseudo example to load samples and infer (t1.tsv is included in this repository):
 ```
 fastclone load-pyclone prop t1.tsv 0.8 solve ./fastclone_result
 ```
-（Please make sure t1.tsv is under your current directory）
+（Please make sure t1.tsv is under your current directory. Note this pseudo example only has one clone with a purity ~0.15）
 
 Run `fastclone` for more help information.
 
@@ -45,3 +45,8 @@ mutations are labelled as 'Chromosome:Coordinate:AltBase', such as
 'Y:15989697:G'. Make sure PyClone ID uses the same ID.
 
 Separately, subclone.py will infer purity (whether a starter value is given or not), and subclone identification and assignment; phylogeny.py will infer phylogeny.
+
+## Output
+
+subclones.csv gives frequency of each clone
+scores.csv gives SNP assignment
