@@ -53,5 +53,8 @@ subclones.csv gives proportion of each clone in a tumor sample.
 scores.csv gives SNPs assignment. Each column corresponding to a clone, and the entries in each column indicates how likely the SNP is assigned to the clone.
 
 phylogeny.png shows the tree structure of clones.
+
 ![GitHub Logo](/example_phylogeny.png)
+
+
 (We named clones with numeric values, which start from 0, and the names are consistent within all output files)
