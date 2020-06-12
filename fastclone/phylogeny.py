@@ -31,7 +31,7 @@ def infer(subclones, score, output):
 
     pos = hierarchy_pos(G, root=0)
     nx.draw(G, pos=pos, with_labels=True, node_color='orange', alpha=0.7)
-    plt.savefig(output + 'phylogeny.png')
+    plt.savefig(output + '/phylogeny.png')
 
 
 def hierarchy_pos(G, root=None, width=1., vert_gap = 0.2, vert_loc = 0, xcenter = 0.5):
