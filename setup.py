@@ -45,5 +45,5 @@ setuptools.setup(
     ],
     #setup_requires=['pytest-runner'],
     #tests_require=['pytest', 'pytest-datadir'],
-    install_requires=['logbook', 'pandas', 'scikit-learn', 'fire'],
+    install_requires=['logbook', 'pandas', 'scikit-learn', 'fire', 'networkx'],
 )
