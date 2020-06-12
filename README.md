@@ -48,11 +48,11 @@ Separately, subclone.py will infer purity (whether a starter value is given or n
 
 ## Output
 
-subclones.csv gives proportion of each clone in a tumor sample.
+1.subclones.csv gives proportion of each clone in a tumor sample.
 
-scores.csv gives SNPs assignment. Each column corresponding to a clone, and the entries in each column indicates how likely the SNP is assigned to the clone.
+2.scores.csv gives SNPs assignment. Each column corresponding to a clone, and the entries in each column indicates how likely the SNP is assigned to the clone.
 
-phylogeny.png shows the tree structure of clones.
+3.phylogeny.png shows the tree structure of clones.
 
 ![GitHub Logo](/example_phylogeny.png)
 
