@@ -43,3 +43,5 @@ Run `fastclone` for more help information.
 If MuTect VCF and PyClone samples are provided, note that MuTect
 mutations are labelled as 'Chromosome:Coordinate:AltBase', such as
 'Y:15989697:G'. Make sure PyClone ID uses the same ID.
+
+Separately, subclone.py will infer purity (whether a starter value is given or not), and subclone identification and assignment; phylogeny.py will infer phylogeny.
