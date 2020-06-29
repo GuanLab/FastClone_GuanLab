@@ -46,7 +46,7 @@ def infer_single_sample(mutations, purity):
                (mutations['state1'] == 1.0))
     if filter_.sum() < _MINIMAL_MUTATIONS:
         filter_ = mutations['state1'] == 1.0
-    if filter_.sum() < _MINIMAL_MUTATIONS:
+    if filter_.sum() > _MINIMAL_MUTATIONS:
         peaks = _infer_without_2state_cna(mutations[filter_], purity)
     else:
         peaks = _infer_with_2state_cna(mutations, purity)
