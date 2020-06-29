@@ -54,7 +54,7 @@ Separately, subclone.py will infer purity (whether a starter value is given or n
 
 3.phylogeny.png shows the tree structure of clones.
 
-![GitHub Logo](/example_phylogeny.png)
+![](https://raw.githubusercontent.com/GuanLab/FastClone_GuanLab/master/example_phylogeny.png)
 
 
 (We named clones with numeric values, which start from 0, and the names are consistent within all output files)
