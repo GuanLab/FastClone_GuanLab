@@ -44,9 +44,9 @@ def infer_single_sample(mutations, purity):
         return _assign_mutations_to_subclones(mutations, peaks)
     filter_ = ((mutations['major_copy1'] == mutations['minor_copy1']) &
                (mutations['state1'] == 1.0))
-    if filter_.sum() > _MINIMAL_MUTATIONS:
+    if filter_.sum() < _MINIMAL_MUTATIONS:
         filter_ = mutations['state1'] == 1.0
-    if filter_.sum() > _MINIMAL_MUTATIONS:
+    if filter_.sum() < _MINIMAL_MUTATIONS:
         peaks = _infer_without_2state_cna(mutations[filter_], purity)
     else:
         peaks = _infer_with_2state_cna(mutations, purity)
