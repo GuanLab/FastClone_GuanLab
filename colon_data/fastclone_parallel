@@ -1,8 +1,8 @@
 #!/bin/bash
 
-filenames='ls ./*.tsv'
+filenames=*.tsv
 
 for sample_file in $filenames
 do
-	(time fastclone load-pyclone prop $sample_file None solve outputs_update/${sample_file}_output) >> output_record_update 2>&1
+	(time fastclone load-pyclone prop $sample_file None solve outputs_new/${sample_file}_output) >> output_record_update 2>&1
 done
