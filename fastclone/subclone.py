@@ -254,7 +254,7 @@ def _estimate_subclone_weights(mutations, peaks):
     ])
     copy_number_category = numpy.unique(major)
     for copy_number in copy_number_category:
-        numerator[numpy.argwhere(major == copy_number)[0][0]][0][(copy_number + 2):] = 0
+        numerator[numpy.argwhere(major == copy_number)[0][0]][0][int(copy_number + 2):] = 0
     p = numerator / denominator
     x = mutations['allelic_count'].values[:, None, None]
     k = mutations['total_count'].values[:, None, None]
