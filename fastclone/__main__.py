@@ -126,6 +126,9 @@ class Entrypoint:
     
     @staticmethod
     def version():
+        """Display the FastClone version
+        """
+        
         print('Ver. 1.0.6')
 
 
