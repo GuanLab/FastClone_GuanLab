@@ -123,6 +123,10 @@ class Entrypoint:
         phylogeny.infer(subclones, score, output)
         pandas.DataFrame(subclones).to_csv(output + '/subclones.csv')
         pandas.DataFrame(score).to_csv(output + '/scores.csv')
+    
+    @staticmethod
+    def version():
+        print('Ver. 1.0.6')
 
 
 def main():
