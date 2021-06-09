@@ -15,7 +15,7 @@ def infer(subclones, score, output):
         
         subclone_snv_number = Counter([np.nanargmax(row) for row in subclones])
         
-        child_parent = {0:root}
+        child_parent = {root:root}
         tmp_root = root
         for i in range(len(subclones) - 1):
             i_inverse = root - i - 1
@@ -26,11 +26,11 @@ def infer(subclones, score, output):
                     tmp_root = i_inverse
                     break
                 else:
-                    tmp_root = child_parent[tmp_root]
                     if tmp_root == root:
                         edge_ls.append((tmp_root, i_inverse))
                         child_parent[i_inverse] = tmp_root
                         break
+                    tmp_root = child_parent[tmp_root]
                  
                     
 
