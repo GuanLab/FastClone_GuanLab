@@ -57,4 +57,4 @@ Separately, subclone.py will infer purity (whether a starter value is given or n
 ![](https://raw.githubusercontent.com/GuanLab/FastClone_GuanLab/master/example_phylogeny.png)
 
 
-(We named clones with numeric values, which start from 0, and the names are consistent within all output files)
+(We named clones with numeric values, which starts from 0, and the names are consistent within all output files)
