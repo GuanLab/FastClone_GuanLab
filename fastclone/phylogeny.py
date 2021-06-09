@@ -10,19 +10,29 @@ def infer(subclones, score, output):
     G = nx.Graph()
 
     if len(subclones) > 1:
-        root = 0
-        edge_ls = [(root, 1)]
-
-        if len(subclones) > 2:
-            subclone_snv_number = Counter([np.nanargmax(row) for row in subclones])
-            i = 2
-            while i != len(subclones):
-                if subclone_snv_number[i] < subclone_snv_number[i - 1]:
-                    edge_ls.append((root, i))
+        edge_ls = []
+        root = len(subclones) - 1
+        
+        subclone_snv_number = Counter([np.nanargmax(row) for row in subclones])
+        
+        child_parent = {}
+        tmp_root = root
+        for i in range(len(subclones) - 1):
+            i_inverse = root - i - 1
+            while true:
+                if subclone_snv_number[i_inverse] < subclone_snv_number[tmp_root]:
+                    edge_ls.append((tmp_root, i_inverse))
+                    child_parent[i_inverse] = tmp_root
+                    tmp_root = i_inverse
+                    break
                 else:
-                    edge_ls.append((i - 1, i))
-                    root = i - 1
-                i += 1
+                    tmp_root = child_parent[tmp_root]
+                    if tmp_root == root:
+                        edge_ls.append((tmp_root, i_inverse))
+                        child_parent[i_inverse] = tmp_root
+                        break
+                 
+                    
 
         G.add_edges_from(edge_ls)
 
