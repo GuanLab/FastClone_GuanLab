@@ -38,7 +38,7 @@ fastclone load-pyclone prop t1.tsv 0.8 solve ./fastclone_result
 ```
 （Please make sure t1.tsv is under your current directory. Note this pseudo example only has one clone with a purity ~0.15）
 
-The general format of command line for reading PyClone format files:
+The general format of command line for reading VCF + Battenberg format files:
 ```
 fastclone load-mutect-battenberg prop [VCF_FILE_NAME] [TUMOR_/_NORMAL_COLUMN] [BATTENBERG_FILE_NAME] solve [OUTPUT_PATHWAY]
 ```
