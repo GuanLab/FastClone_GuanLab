@@ -111,7 +111,7 @@ class Entrypoint:
         if len(self._samples) > 1:
             raise NotImplementedError('mult-sample inference is not available')
         _LOG.info('Solving subclonal composition ...')
-        pathlib.Path(output).mkdir(parents=True)
+        pathlib.Path(output).mkdir(parents=True, exist_ok=True)
         samples = list(self._samples.items())
         subclones = None
         for name, sample in samples:
