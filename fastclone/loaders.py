@@ -38,9 +38,15 @@ def load_mutect_and_battenberg(vcf_path, vcf_sample, battenberg_path):
     data['coordinate'] = vcf['POS']
     data['base'] = vcf['ALT']
     sample = vcf[vcf_sample].str.split(':', expand=True)
-    read_counts = sample[1].str.split(',', expand=True).astype('i4')
-    data['total_count'] = read_counts[0] + read_counts[1]
-    data['allelic_count'] = read_counts[1]
+    
+    try:
+        read_counts = sample[1].str.split(',', expand=True).astype('i4')
+        data['total_count'] = read_counts[0] + read_counts[1]
+        data['allelic_count'] = read_counts[1]
+    except ValueError:
+        data['total_count'] = [100] * len(sample[4])
+        data['allelic_count'] = 100 * sample[4].astype(float)
+        
     data['normal_copy'] = 2
     data['major_copy1'] = 1
     data['minor_copy1'] = 1
