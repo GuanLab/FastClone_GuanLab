@@ -26,17 +26,28 @@ pip install fastclone-guanlab
 FastClone accepts either MuTect VCF + Battenberg format (specified in the DREAM
 SMC-Het Challenge) or PyClone format.
 
-The general format of the command line:
+The general format of command line for reading PyClone format files:
 ```
-fastclone load-[FILE_FORMAT] prop [FILE_NAME] [TUMOR_PURITY] solve [OUTPUT_PATHWAY]
+fastclone load-pyclone prop [FILE_NAME] [TUMOR_PURITY] solve [OUTPUT_PATHWAY]
 ```
 (If purity is unavailable, input "None" at the position of [TUMOUR__PURITY], and FastClone will infer purity automatically)
 
-A pseudo example to load samples and infer (t1.tsv is included in this repository):
+A pseudo example to load samples from PyClone format files and infer (t1.tsv is included in this repository):
 ```
 fastclone load-pyclone prop t1.tsv 0.8 solve ./fastclone_result
 ```
 （Please make sure t1.tsv is under your current directory. Note this pseudo example only has one clone with a purity ~0.15）
+
+The general format of command line for reading PyClone format files:
+```
+fastclone load-mutect-battenberg prop [VCF_FILE_NAME] [TUMOR_/_NORMAL_COLUMN] [BATTENBERG_FILE_NAME] solve [OUTPUT_PATHWAY]
+```
+
+A pseudo example to load samples from VCF + Battenberg files (VCF + Battenberg mode does not need tumor purity):
+```
+fastclone load-mutect-battenberg prop 0009b464-b376-4fbc-8a56-da538269a02f tumor 0009b464-b376-4fbc-8a56-da538269a02f.consensus.20170119.somatic.cna.txt solve ./fastclone_result
+```
+(Example files are in the folder called Battenberg_VCF_sample)
 
 Run `fastclone` for more help information.
 
