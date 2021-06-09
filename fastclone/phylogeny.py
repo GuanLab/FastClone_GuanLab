@@ -15,7 +15,7 @@ def infer(subclones, score, output):
         
         subclone_snv_number = Counter([np.nanargmax(row) for row in subclones])
         
-        child_parent = {}
+        child_parent = {0:root}
         tmp_root = root
         for i in range(len(subclones) - 1):
             i_inverse = root - i - 1
