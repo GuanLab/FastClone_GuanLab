@@ -19,7 +19,7 @@ def infer(subclones, score, output):
         tmp_root = root
         for i in range(len(subclones) - 1):
             i_inverse = root - i - 1
-            while true:
+            while True:
                 if subclone_snv_number[i_inverse] < subclone_snv_number[tmp_root]:
                     edge_ls.append((tmp_root, i_inverse))
                     child_parent[i_inverse] = tmp_root
