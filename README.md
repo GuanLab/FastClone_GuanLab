@@ -69,3 +69,10 @@ Separately, subclone.py will infer purity (whether a starter value is given or n
 
 
 (We named clones with numeric values, which starts from 0, and the names are consistent within all output files)
+
+## Versions
+
+### 1.0.8
+    * Fix the phlogeny module, and add a new function to output the proportion of a subclone in its parent clone.
+
+
