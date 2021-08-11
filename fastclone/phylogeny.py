@@ -36,6 +36,14 @@ def infer(subclones, score, output):
                     
 
         G.add_edges_from(edge_ls)
+        
+        child_in_parent_prop = list()
+        for edge in edge_ls:
+            p = subclones.iloc[edge[1], 0]/subclones.iloc[edge[0], 0]
+            edge.append(p)
+            child_in_parent_prop.append(edge)
+
+        pd.DataFrame(child_in_parent_prop, columns=['Parent', 'Child', 'The proportion of child clone']).to_csv(output + '/phylogeny_proportion.csv')
 
     else:
         G.add_nodes_from([0])
