@@ -5,7 +5,7 @@ mutation frequencies and copy number data, FastClone infers subclonal
 composition and phylogeny. The algorithm won the first place in DREAM Somatic
 Mutation Calling -- Heterogeneity Challenge.
 
-## Installation
+# Installation
 
 FastClone needs Python 3.5 or later version. It needs logbook, python-fire,
 scikit-learn, and pandas. To install the package using Pip,
@@ -21,7 +21,7 @@ You also can directly pip install FastClone with the command below.
 ```
 pip install fastclone-guanlab
 ```
-## Usage
+# Usage
 
 FastClone accepts either MuTect VCF + Battenberg format (specified in the DREAM
 SMC-Het Challenge) or PyClone format.
@@ -57,7 +57,7 @@ mutations are labelled as 'Chromosome:Coordinate:AltBase', such as
 
 Separately, subclone.py will infer purity (whether a starter value is given or not), and subclone identification and assignment; phylogeny.py will infer phylogeny.
 
-## Output
+# Output
 
 1.subclones.csv gives proportion of each clone in a tumor sample.
 
@@ -70,9 +70,9 @@ Separately, subclone.py will infer purity (whether a starter value is given or n
 
 (We named clones with numeric values, which starts from 0, and the names are consistent within all output files)
 
-## Versions
+# Versions
 
-### 1.0.8
-    * Fix the phlogeny module, and add a new function to output the proportion of a subclone in its parent clone.
+## 1.0.8
+    Markup : * Fix the phlogeny module, and add a new function to output the proportion of a subclone in its parent clone.
 
 
