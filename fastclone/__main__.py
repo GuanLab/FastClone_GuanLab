@@ -129,7 +129,7 @@ class Entrypoint:
         """Display the FastClone version.
         """
         
-        print('Ver. 1.0.6')
+        print('Ver. 1.0.8')
 
 
 def main():
