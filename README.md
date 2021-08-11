@@ -65,6 +65,8 @@ Separately, subclone.py will infer purity (whether a starter value is given or n
 
 3.phylogeny.png shows the tree structure of clones.
 
+4.phylogeny_proportion.csv gives the proportion of a subclone in its parent clone.
+
 ![](https://raw.githubusercontent.com/GuanLab/FastClone_GuanLab/master/example_phylogeny.png)
 
 
