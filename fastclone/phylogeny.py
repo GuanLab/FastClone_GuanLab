@@ -13,7 +13,8 @@ def infer(subclones, score, output):
         edge_ls = []
         root = len(subclones) - 1
         
-        subclone_snv_number = Counter([np.nanargmax(row) for row in subclones])
+        snv_assignments = score.values.argmax(axis=1)
+        subclone_snv_number = Counter(snv_assignments)
         
         child_parent = {root:root}
         tmp_root = root
