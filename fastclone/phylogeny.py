@@ -5,6 +5,7 @@ import random
 import matplotlib.pyplot as plt
 from collections import Counter
 import numpy as np
+import pandas as pd
 
 def infer(subclones, score, output):
     G = nx.Graph()
